@@ -23,8 +23,9 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class MoviesDataLoader implements LoaderManager.LoaderCallbacks<JSONObject> {
     private static final String TAG = "MoviesDataLoader";
-    public static final String API_URL_POPULAR = "https://api.themoviedb.org/3/movie/popular?api_key=c4cc0326a21919184ed91baf888a80a9&language=en-US&page=1";
-    public static final String API_URL_HIGHEST_RATED = "https://api.themoviedb.org/3/movie/top_rated?api_key=c4cc0326a21919184ed91baf888a80a9&language=en-US&page=1";
+    private static final String API_KEY = "hidden_code";
+    public static final String API_URL_POPULAR = "https://api.themoviedb.org/3/movie/popular?api_key="+API_KEY+"&language=en-US&page=1";
+    public static final String API_URL_HIGHEST_RATED = "https://api.themoviedb.org/3/movie/top_rated?api_key="+API_KEY+"&language=en-US&page=1";
     public static final String DEFAULT_URL = API_URL_POPULAR;
 
     private static String mCurrentUrl;
