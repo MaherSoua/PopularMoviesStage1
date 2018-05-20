@@ -1,5 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="com.mahersoua.popularmovies.models.GenreModel name" />
+      <entry_point TYPE="field" FQNAME="com.mahersoua.popularmovies.models.GenreModel id" />
+      <entry_point TYPE="field" FQNAME="com.mahersoua.popularmovies.models.MovieCollectionModel name" />
+      <entry_point TYPE="field" FQNAME="com.mahersoua.popularmovies.models.MovieCollectionModel id" />
+      <entry_point TYPE="field" FQNAME="com.mahersoua.popularmovies.models.MovieModel CREATOR" />
+      <entry_point TYPE="field" FQNAME="com.mahersoua.popularmovies.models.ProductionCompaniesModel originCountry" />
+      <entry_point TYPE="field" FQNAME="com.mahersoua.popularmovies.models.ProductionCompaniesModel name" />
+      <entry_point TYPE="field" FQNAME="com.mahersoua.popularmovies.models.ProductionCompaniesModel logoPath" />
+      <entry_point TYPE="field" FQNAME="com.mahersoua.popularmovies.models.ProductionCompaniesModel id" />
+      <entry_point TYPE="field" FQNAME="com.mahersoua.popularmovies.models.ProductionCountryModel name" />
+      <entry_point TYPE="field" FQNAME="com.mahersoua.popularmovies.models.ProductionCountryModel iso" />
+      <entry_point TYPE="field" FQNAME="com.mahersoua.popularmovies.models.SpokenLanguageModel name" />
+      <entry_point TYPE="field" FQNAME="com.mahersoua.popularmovies.models.SpokenLanguageModel iso" />
+    </entry_points>
+    <pattern value="com.mahersoua.popularmovies.CatalogActivity" />
+    <pattern value="com.mahersoua.popularmovies.DetailsActivity" />
+    <pattern value="com.mahersoua.popularmovies.ExampleInstrumentedTest" method="useAppContext" />
+    <pattern value="com.mahersoua.popularmovies.ExampleUnitTest" method="addition_isCorrect" />
+    <pattern value="com.mahersoua.popularmovies.models.GenreModel" />
+    <pattern value="com.mahersoua.popularmovies.MainActivity" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieCollectionModel" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getVoteCount" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="setRuntime" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getRuntime" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getId" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getPopularity" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="setRevenue" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getRevenue" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="setBudget" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getBudget" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="isVideo" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="isAdult" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="setSpokenLanguages" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getSpokenLanguages" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="setProductionCountries" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getProductionCountries" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="setProductionCompanies" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getProductionCompanies" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="setBelongsToCollection" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getBelongsToCollection" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="setGenres" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getGenres" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getGenreIds" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="setTagline" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getTagline" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="setStatus" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getStatus" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getOriginalTitle" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getOriginalLanguage" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="setImdbId" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getImdbId" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getBackdropPath" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="setHomePage" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" method="getHomePage" />
+    <pattern value="com.mahersoua.popularmovies.models.MovieModel" />
+    <pattern value="com.mahersoua.popularmovies.data.MoviesDataLoader.IMoviesCallback" method="onLoadError" />
+    <pattern value="com.mahersoua.popularmovies.data.MoviesDataLoader.IMoviesCallback" />
+    <pattern value="com.mahersoua.popularmovies.data.MoviesDataLoader" />
+    <pattern value="com.mahersoua.popularmovies.models.ProductionCompaniesModel" />
+    <pattern value="com.mahersoua.popularmovies.models.ProductionCountryModel" />
+    <pattern value="com.mahersoua.popularmovies.models.SpokenLanguageModel" />
+  </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
     <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />

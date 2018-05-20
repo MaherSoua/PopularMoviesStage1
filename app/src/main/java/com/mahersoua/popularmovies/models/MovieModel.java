@@ -37,7 +37,7 @@ public class MovieModel implements Parcelable {
 
     }
 
-    protected MovieModel(Parcel in) {
+    private MovieModel(Parcel in) {
         homePage = in.readString();
         backdropPath = in.readString();
         imdbId = in.readString();

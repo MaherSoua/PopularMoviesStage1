@@ -25,15 +25,14 @@ public class MoviesDataLoader implements LoaderManager.LoaderCallbacks<JSONObjec
     private static final String TAG = "MoviesDataLoader";
     public static final String API_URL_POPULAR = "https://api.themoviedb.org/3/movie/popular?api_key=c4cc0326a21919184ed91baf888a80a9&language=en-US&page=1";
     public static final String API_URL_HIGHEST_RATED = "https://api.themoviedb.org/3/movie/top_rated?api_key=c4cc0326a21919184ed91baf888a80a9&language=en-US&page=1";
-    public static final String DEFAUL_URL = API_URL_POPULAR;
+    public static final String DEFAULT_URL = API_URL_POPULAR;
 
     private static String mCurrentUrl;
-    private static AppCompatActivity mActivity = null;
+    private AppCompatActivity mActivity = null;
     private static MoviesDataLoader mInstance = null;
     private boolean isLoaderInit = false;
 
 
-    private final int LOADER_ID = 11;
     public static MoviesDataLoader getInstance(){
         if(mInstance == null){
             mInstance = new MoviesDataLoader();
@@ -44,6 +43,7 @@ public class MoviesDataLoader implements LoaderManager.LoaderCallbacks<JSONObjec
     public void requestMovieList(AppCompatActivity activity, String url){
         mActivity = activity;
         mCurrentUrl = url;
+        int LOADER_ID = 11;
         if(!isLoaderInit){
             mActivity.getSupportLoaderManager().initLoader(LOADER_ID, null , this);
             isLoaderInit = true;
@@ -55,7 +55,7 @@ public class MoviesDataLoader implements LoaderManager.LoaderCallbacks<JSONObjec
 
     @NonNull
     @Override
-    public Loader onCreateLoader(int id, @Nullable Bundle args) {
+    public Loader<JSONObject> onCreateLoader(int id, @Nullable Bundle args) {
         return new AsyncTaskLoader(mActivity) {
             String mMovieResponse = null;
             @Override
@@ -69,7 +69,7 @@ public class MoviesDataLoader implements LoaderManager.LoaderCallbacks<JSONObjec
             @Nullable
             @Override
             public JSONObject loadInBackground() {
-                HttpsURLConnection connection = null;
+                HttpsURLConnection connection;
                 JSONObject responseObject = null;
                try {
                     URL url = new URL(mCurrentUrl);
@@ -98,7 +98,7 @@ public class MoviesDataLoader implements LoaderManager.LoaderCallbacks<JSONObjec
                 return responseObject;
             }
 
-            public void deliverResult(String data){
+            private void deliverResult(String data){
                 mMovieResponse = data;
                 super.deliverResult(data);
             }
@@ -106,11 +106,11 @@ public class MoviesDataLoader implements LoaderManager.LoaderCallbacks<JSONObjec
     }
 
     @Override
-    public void onLoadFinished(@NonNull Loader<JSONObject> loader, JSONObject data) {
+    public void onLoadFinished(@NonNull Loader loader, JSONObject data) {
         try{
             ((IMoviesCallback)mActivity).onLoadFinished(data.getJSONArray("results"));
         } catch (JSONException exception){
-            Log.d(TAG , "***>>> "+exception.getMessage());
+            ((IMoviesCallback)mActivity).onLoadError(exception.getMessage());
         }
     }
 

@@ -1,7 +1,5 @@
 package com.mahersoua.popularmovies;
 
-import android.content.Intent;
-import android.graphics.Movie;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,8 +12,6 @@ import com.mahersoua.popularmovies.models.MovieModel;
 import com.squareup.picasso.Picasso;
 
 public class DetailsActivity extends AppCompatActivity {
-
-    String URL = "http://image.tmdb.org/t/p/w500/";
 
 
     @Override
@@ -31,15 +27,16 @@ public class DetailsActivity extends AppCompatActivity {
             TextView releaseDate = findViewById(R.id.releaseDate);
             TextView synopsisTv = findViewById(R.id.synopsisTv);
 
+            if(null!= movieModel){
+                movieNameTv.setText(movieModel.getTitle());
+                ratingBar.setRating(movieModel.getVoteAverage());
+                releaseDate.setText(movieModel.getReleaseDate());
+                synopsisTv.setText(movieModel.getOverview());
 
-            movieNameTv.setText(movieModel.getTitle());
-            ratingBar.setRating(movieModel.getVoteAverage());
-            releaseDate.setText(movieModel.getReleaseDate());
-            synopsisTv.setText(movieModel.getOverview());
-
-            ImageView posterContainer = findViewById(R.id.detailsPosterContainer);
-            Picasso.get().load(URL+movieModel.getPosterPath()).into(posterContainer);
-
+                ImageView posterContainer = findViewById(R.id.detailsPosterContainer);
+                String URL = "http://image.tmdb.org/t/p/w500/";
+                Picasso.get().load(URL +movieModel.getPosterPath()).into(posterContainer);
+            }
         }
 
 

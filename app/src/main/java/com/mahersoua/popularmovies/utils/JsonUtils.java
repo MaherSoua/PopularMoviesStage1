@@ -1,6 +1,5 @@
 package com.mahersoua.popularmovies.utils;
 
-import android.graphics.Movie;
 import android.util.Log;
 
 import com.mahersoua.popularmovies.models.MovieModel;
