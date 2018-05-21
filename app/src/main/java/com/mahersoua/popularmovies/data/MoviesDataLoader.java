@@ -9,6 +9,8 @@ import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.mahersoua.popularmovies.BuildConfig;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +25,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class MoviesDataLoader implements LoaderManager.LoaderCallbacks<JSONObject> {
     private static final String TAG = "MoviesDataLoader";
-    private static final String API_KEY = "hidden_code";
+    private static final String API_KEY = BuildConfig.API_KEY;
     public static final String API_URL_POPULAR = "https://api.themoviedb.org/3/movie/popular?api_key="+API_KEY+"&language=en-US&page=1";
     public static final String API_URL_HIGHEST_RATED = "https://api.themoviedb.org/3/movie/top_rated?api_key="+API_KEY+"&language=en-US&page=1";
     public static final String DEFAULT_URL = API_URL_POPULAR;
@@ -90,7 +92,7 @@ public class MoviesDataLoader implements LoaderManager.LoaderCallbacks<JSONObjec
 
                     responseObject = new JSONObject(stringBuilder.toString());
                 } catch (MalformedURLException e) {
-                    Log.d(TAG, e.getMessage());
+                    Log.d(TAG, "Malformed Url");
                 } catch (IOException exception){
                     Log.d(TAG , exception.getMessage());
                 } catch (JSONException exception){
@@ -109,7 +111,9 @@ public class MoviesDataLoader implements LoaderManager.LoaderCallbacks<JSONObjec
     @Override
     public void onLoadFinished(@NonNull Loader loader, JSONObject data) {
         try{
-            ((IMoviesCallback)mActivity).onLoadFinished(data.getJSONArray("results"));
+            if(data != null){
+                ((IMoviesCallback)mActivity).onLoadFinished(data.getJSONArray("results"));
+            }
         } catch (JSONException exception){
             ((IMoviesCallback)mActivity).onLoadError(exception.getMessage());
         }
